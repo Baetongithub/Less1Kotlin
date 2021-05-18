@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity() {
         ui = ActivityMainBinding.inflate(layoutInflater)
         setContentView(ui.root)
 
+        val etValue2 = intent.getStringExtra(ET_VALUE)
+        ui.editTextSendData.setText(etValue2)
+
         ui.buttonSend.setOnClickListener {
             if (ui.editTextSendData.text.toString().trim().isEmpty()) {
                 Toast.makeText(this, "Field can not be empty", Toast.LENGTH_SHORT).show()
@@ -22,6 +25,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, MainActivity2::class.java)
                 intent.putExtra(ET_VALUE, ui.editTextSendData.text.toString())
                 startActivity(intent)
+                finish()
             }
         }
     }

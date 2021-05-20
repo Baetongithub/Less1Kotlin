@@ -15,7 +15,9 @@
         android:layout_marginTop="15dp"
         android:hint="@string/send_data_to_activity"
         app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp">
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/purple_500">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_send_data"

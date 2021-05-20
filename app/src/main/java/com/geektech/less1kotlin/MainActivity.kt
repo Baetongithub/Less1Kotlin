@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         ui.buttonSend.setOnClickListener {
-            if (isEditTextEmpty(ui.editTextSendData)) {
+            if (ui.editTextSendData.text.toString().trim().isEmpty()) {
                 toast(getString(R.string.field_cant_be_empty))
             } else {
                 val intent = Intent(this, MainActivity2::class.java)

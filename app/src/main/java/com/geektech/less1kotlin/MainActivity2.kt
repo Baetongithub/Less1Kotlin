@@ -1,9 +1,8 @@
 package com.geektech.less1kotlin
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.geektech.less1kotlin.databinding.ActivityMain2Binding
 
 class MainActivity2 : AppCompatActivity() {
@@ -20,11 +19,11 @@ class MainActivity2 : AppCompatActivity() {
 
         ui.buttonSend.setOnClickListener {
             if (ui.editTextSendData.text.toString().trim().isEmpty()) {
-                Toast.makeText(this, "Field can not be empty", Toast.LENGTH_SHORT).show()
+                toast(getString(R.string.field_cant_be_empty))
             } else {
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra(MainActivity.ET_VALUE, ui.editTextSendData.text.toString())
-                startActivity(intent)
+                val data =
+                    Intent().putExtra(MainActivity.ET_VALUE, ui.editTextSendData.text.toString().trim())
+                setResult(RESULT_OK, data)
                 finish()
             }
         }

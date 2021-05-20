@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Less1Kotlin</string>
+    <string name="field_cant_be_empty">Field can not be empty</string>
+    <string name="send_to_1">send to 1</string>
+    <string name="send_data_to_activity">Send data to activity</string>
+    <string name="send_to_2">send to 2</string>
 </resources>

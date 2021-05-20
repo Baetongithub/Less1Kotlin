@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:hint="Send data to activity"
+        android:hint="@string/send_data_to_activity"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
         app:endIconMode="clear_text"
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:gravity="center_horizontal"
-            android:hint="Send data to activity"
+            android:hint="@string/send_data_to_activity"
             android:textColorHint="@android:color/transparent"
             android:textSize="24sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:backgroundTint="@android:color/holo_orange_light"
-        android:text="send to 1" />
+        android:text="@string/send_to_1" />
 
 
 </LinearLayout>

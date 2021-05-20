@@ -2,7 +2,7 @@ package com.geektech.less1kotlin
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.geektech.less1kotlin.databinding.ActivityMainBinding
 
@@ -15,17 +15,22 @@ class MainActivity : AppCompatActivity() {
         ui = ActivityMainBinding.inflate(layoutInflater)
         setContentView(ui.root)
 
-        val etValue2 = intent.getStringExtra(ET_VALUE)
-        ui.editTextSendData.setText(etValue2)
+        val resultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == RESULT_OK) {
+                    val data: Intent? = result.data
+                    val etValue = data?.getStringExtra(ET_VALUE)
+                    ui.editTextSendData.setText(etValue)
+                }
+            }
 
         ui.buttonSend.setOnClickListener {
             if (ui.editTextSendData.text.toString().trim().isEmpty()) {
-                Toast.makeText(this, "Field can not be empty", Toast.LENGTH_SHORT).show()
+                toast(getString(R.string.field_cant_be_empty))
             } else {
                 val intent = Intent(this, MainActivity2::class.java)
-                intent.putExtra(ET_VALUE, ui.editTextSendData.text.toString())
-                startActivity(intent)
-                finish()
+                intent.putExtra(ET_VALUE, ui.editTextSendData.text.toString().trim())
+                resultLauncher.launch(intent)
             }
         }
     }

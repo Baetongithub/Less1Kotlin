@@ -18,7 +18,7 @@ class MainActivity2 : AppCompatActivity() {
         ui.editTextSendData.setText(etValue)
 
         ui.buttonSend.setOnClickListener {
-            if (isEditTextEmpty(ui.editTextSendData)) {
+            if (ui.editTextSendData.isEmpty()) {
                 toast(getString(R.string.field_cant_be_empty))
             } else {
                 val data =
